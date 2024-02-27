@@ -11,9 +11,11 @@ jobs:
 
       - name: scp a produccio
         run: |
+          cd ./web/vue-project
+          npm run build
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/prod_key.pem
           chmod 600 ~/prod_key.pem
           cd ${{ github.workspace }}
-          scp -r -o stricthostkeychecking=no -o UserKnownHostsFile=/dev/null -i "~/prod_key.pem" ./web/* ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/home/a20erigomvil/web/a20erigomvil.daw.inspedralbes.cat/public_html/actionsw
+          scp -r -o stricthostkeychecking=no -o UserKnownHostsFile=/dev/null -i "~/prod_key.pem" ./web/vue-project/* ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/home/a20erigomvil/web/a20erigomvil.daw.inspedralbes.cat/public_html/actionsw
           
       - run: echo "🍏 This job's status is ${{ job.status }}."
