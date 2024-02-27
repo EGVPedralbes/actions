@@ -11,6 +11,7 @@ jobs:
 
       - name: scp a produccio
         run: |
+          npm install
           cd ./web/vue-project
           npm run build
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/prod_key.pem
