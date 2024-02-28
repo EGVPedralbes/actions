@@ -38,7 +38,7 @@ jobs:
 
       - name: Run ESLint
         run: |
-          cd ./web/vue-project
+          cd ./web/vue-project/*
           npx eslint *
         continue-on-error: true
 
