@@ -34,6 +34,7 @@ jobs:
         run: |
           cd ./web/vue-project
           npm install
+          ls -la .
           npx eslint ./*
         continue-on-error: true
 
