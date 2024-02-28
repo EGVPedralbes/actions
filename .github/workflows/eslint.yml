@@ -37,10 +37,10 @@ jobs:
 
       - name: Run ESLint
         run: |
-          npx eslint . \
-          --config .eslintrc.js \
-          --ext .js,.jsx,.ts,.tsx \
-          --format @microsoft/eslint-formatter-sarif \
+          npx eslint .\web\vue-project\*
+          --config .eslintrc.js \web\vue-project\*
+          --ext .js,.jsx,.ts,.tsx \web\vue-project\*
+          --format @microsoft/eslint-formatter-sarif \web\vue-project\*
           --output-file eslintReport.sarif
         continue-on-error: true
 
